@@ -1,6 +1,7 @@
 from flask import Flask, render_template, send_file
 import csv
 import io
+from datetime import datetime
 
 app = Flask(__name__)
 
@@ -35,8 +36,15 @@ def download_csv():
     csv_bytes = output.getvalue().encode('utf-8')
     output.close()
 
+    # Obter a data da primeira entrada da planilha
+    data_primeira_entrada = planilha_data[0]['data']
+    data_formatada = datetime.strptime(data_primeira_entrada, '%Y-%m-%d').strftime('%Y%m%d')
+
+    # Nome do arquivo com a data
+    nome_arquivo = f'suape_vision_{data_formatada}.csv'
+
     # Retornar o arquivo CSV como resposta
-    return send_file(io.BytesIO(csv_bytes), mimetype='text/csv', as_attachment=True, download_name='suape-vision.csv')
+    return send_file(io.BytesIO(csv_bytes), mimetype='text/csv', as_attachment=True, download_name=nome_arquivo)
 
 if __name__ == '__main__':
     app.run(debug=True)
