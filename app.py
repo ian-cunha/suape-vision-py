@@ -36,7 +36,7 @@ def download_csv():
     output.close()
 
     # Retornar o arquivo CSV como resposta
-    return send_file(io.BytesIO(csv_bytes), mimetype='text/csv', as_attachment=True, download_name='relatorio.csv')
+    return send_file(io.BytesIO(csv_bytes), mimetype='text/csv', as_attachment=True, download_name='suape-vision.csv')
 
 if __name__ == '__main__':
     app.run(debug=True)
