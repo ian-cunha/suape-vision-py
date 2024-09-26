@@ -1,18 +1,10 @@
-from flask import Flask, render_template, send_file, jsonify, request, redirect, url_for, session
+from flask import Flask, render_template, send_file, jsonify
 
-import requests
 import csv
 import io
 from datetime import datetime
 
 app = Flask(__name__)
-
-users = {
-    "admin": "suape",
-}
-
-app.secret_key = 'suape'
-
 
 dados = [
     {
@@ -86,172 +78,6 @@ dados = [
 def index():
     video_data = {"title": "CAM-01", "url": "vxqQyW4b9jA"}
     return render_template("index.html", video=video_data, planilha=dados)
-
-
-
-@app.route("/login", methods=["GET", "POST"])
-def login():
-    if request.method == "POST":
-        username = request.form.get("username")
-        password = request.form.get("password")
-
-        # Validação das credenciais
-        if username in users and users[username] == password:
-            session["user"] = username
-            return redirect(url_for("webhooks"))
-
-        return "Credenciais inválidas. Tente novamente.", 401
-
-    return """
-    <!DOCTYPE html>
-    <html lang="pt-BR">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Login - SUAPE Vision</title>
-        <style>
-            body {
-                font-family: Arial, sans-serif;
-                background-color: #f4f4f4;
-                color: #333;
-                margin: 0;
-                padding: 20px;
-            }
-            .container {
-                max-width: 400px;
-                margin: auto;
-                background: white;
-                padding: 20px;
-                border-radius: 8px;
-                box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            }
-            input[type="text"], input[type="password"] {
-                width: 95%;
-                padding: 10px;
-                margin: 10px 0;
-                border: 1px solid #ccc;
-                border-radius: 5px;
-            }
-            button {
-                background-color: #004A2E;
-                border: none;
-                color: white;
-                padding: 10px;
-                cursor: pointer;
-                width: 100%;
-                border-radius: 5px;
-                transition: background-color 0.3s;
-            }
-            button:hover {
-                background-color: #333;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="container">
-            <h1>Login</h1>
-            <form method="post">
-                <input type="text" name="username" placeholder="Usuário" required>
-                <input type="password" name="password" placeholder="Senha" required>
-                <button type="submit">Entrar</button>
-            </form>
-        </div>
-    </body>
-    </html>
-    """
-
-@app.route("/api/webhooks", methods=["GET", "POST"])
-def webhooks():
-    if "user" not in session:
-        return redirect(url_for("login"))
-
-    if request.method == "POST":
-        webhook_url = request.form.get("webhook_url")
-        payload = {"message": "Webhook enviado com sucesso!"}
-        try:
-            response = requests.post(webhook_url, json=payload)
-            if response.status_code == 200:
-                return "Webhook enviado com sucesso!", 200
-            else:
-                return f"Falha ao enviar webhook: {response.text}", response.status_code
-        except requests.exceptions.RequestException as e:
-            return f"Erro ao enviar webhook: {e}", 500
-
-    return """
-    <!DOCTYPE html>
-    <html lang="pt-BR">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Webhooks - SUAPE Vision</title>
-        <style>
-            body {
-                font-family: Arial, sans-serif;
-                background-color: #f4f4f4;
-                color: #333;
-                margin: 0;
-                padding: 20px;
-            }
-            .container {
-                max-width: 800px;
-                margin: auto;
-                background: white;
-                padding: 20px;
-                border-radius: 8px;
-                box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            }
-            input[type="text"] {
-                width: 98%;
-                padding: 10px;
-                margin: 10px 0;
-                border: 1px solid #ccc;
-                border-radius: 5px;
-            }
-            button {
-                background-color: #004A2E;
-                border: none;
-                color: white;
-                padding: 10px;
-                cursor: pointer;
-                border-radius: 5px;
-                transition: background-color 0.3s;
-                margin-top: 20px;
-                width: 100%;
-            }
-            button:hover {
-                background-color: #333;
-            }
-            @media (max-width: 600px) {
-                button {
-                    width: 100%;
-                }
-                .container {
-                    width: 90%;
-                }
-            }
-        </style>
-    </head>
-    <body>
-        <div class="container">
-            <h1>Gerenciador de Webhooks</h1>
-            <p>Aqui você pode gerenciar seus webhooks.</p>
-            <form method="post">
-                <input type="text" name="webhook_url" placeholder="URL do Webhook" required>
-                <button type="submit">Enviar Webhook</button>
-            </form>
-            <button onclick="location.href='/'">Voltar</button>
-            <button onclick="location.href='/logout'">Logout</button>
-        </div>
-    </body>
-    </html>
-    """
-
-
-@app.route("/logout")
-def logout():
-    session.pop("user", None)
-    return redirect(url_for("login"))
-
 
 
 @app.route("/api/guia")
@@ -463,7 +289,6 @@ def download_csv():
     )
 
 
-
 @app.route("/api", methods=["GET"])
 def get_api_welcome():
     return """
@@ -566,7 +391,6 @@ def get_api_welcome():
                     </div>
                     <h1>Bem-vindos, API SUAPE Vision!</h1>
                     <button onclick="location.href='/api/guia'">Guia de uso da API</button>
-                    <button onclick="location.href='/api/webhooks'">Acessar Webhooks</button>
                     <p>Exemplos de acessos de dados:</p>
                     <button onclick="location.href='/api/dados'">Todos os Dados</button>
                     <button onclick="location.href='/api/dados/id/GH89J'">Filtrar por ID (GH89J)</button>
@@ -590,9 +414,6 @@ def get_dados(id=None, data=None):
         filtrados = [item for item in filtrados if item["data"] == data]
 
     return jsonify(filtrados) if filtrados else ("", 404)
-
-def handler(request):
-    return app(request)
 
 
 if __name__ == "__main__":
