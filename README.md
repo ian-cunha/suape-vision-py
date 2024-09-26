@@ -1,7 +1,7 @@
 # SUAPE Vision API
 
 ## Acesse
-Você pode acessar a API no seguinte link: [![SUAPE Vision](https://suapevision.vercel.app/)](https://suapevision.vercel.app)
+Você pode acessar a API no seguinte link: ![SUAPE Vision](https://suapevision.vercel.app)
 
 
 ## Descrição
