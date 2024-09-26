@@ -209,7 +209,7 @@ def get_api_welcome():
                     </div>
                     <h1>Bem-vindos, API SUAPE Vision!</h1>
                     <p>Exemplos de acessos de dados:</p>
-                    <button onclick="location.href='/api/dados'">Ver Todos os Dados</button>
+                    <button onclick="location.href='/api/dados'">Todos os Dados</button>
                     <button onclick="location.href='/api/dados/id/GH89J'">Filtrar por ID (GH89J)</button>
                     <button onclick="location.href='/api/dados/data/2024-04-20'">Filtrar por Data (2024-04-20)</button>
                     <button onclick="location.href='/api/dados/id/ZX56O/data/2024-01-01'">Filtrar por ID e Data</button>
