@@ -262,7 +262,6 @@ def guia():
     """
 
 
-
 @app.route("/download_csv")
 def download_csv():
     output = io.StringIO()
