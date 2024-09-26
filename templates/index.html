@@ -4,6 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="https://raw.githubusercontent.com/ian-cunha/suape-vision-py/refs/heads/main/src/logo.png"
+        type="image/png">
     <title>SUAPE Vision</title>
     <style>
         body {
@@ -16,12 +18,24 @@
             padding: 20px;
         }
 
+        .logo img {
+            max-width: 100px;
+            height: auto;
+        }
+
         .logo {
-            font-size: 36px;
-            font-weight: bold;
-            color: #2C3E50;
-            /* Cor da logo */
-            margin-bottom: 20px;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+        }
+
+        .name-logo {
+            margin-left: 8px;
+            color: #004A2E;
+            font-weight: lighter;
+            font-size: 2.3em;
+            letter-spacing: -2px;
+            line-height: 30px;
         }
 
         h2 {
@@ -83,7 +97,7 @@
         .button {
             display: inline-block;
             padding: 10px 20px;
-            background-color: gray;
+            background-color: #004A2E;
             color: white;
             text-decoration: none;
             border-radius: 4px;
@@ -91,7 +105,7 @@
         }
 
         .button:hover {
-            background-color: black;
+            background-color: #333;
         }
 
         footer {
@@ -123,7 +137,11 @@
 
 <body>
 
-    <div class="logo">SUAPE Vision</div>
+    <div class="logo">
+        <img width="80px" src="https://raw.githubusercontent.com/ian-cunha/suape-vision-py/refs/heads/main/src/logo.png"
+            alt="SUAPE Vision">
+        <h1 class="name-logo"><b>SUAPE</b><br />Vision</h1>
+    </div>
 
     <div class="container">
         <div id="video">
@@ -132,8 +150,6 @@
                 src="https://www.youtube.com/embed/{{ video.url }}?autoplay=1&controls=0&loop=1&showinfo=0&playlist={{ video.url }}&mute=1"
                 frameborder="0" allowfullscreen allow="autoplay">
             </iframe>
-
-
         </div>
         <div id="planilha">
             <h2>Planilha de dados</h2>
