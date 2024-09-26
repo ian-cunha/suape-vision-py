@@ -593,4 +593,4 @@ def get_dados(id=None, data=None):
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run()
