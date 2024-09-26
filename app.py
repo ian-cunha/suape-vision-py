@@ -7,14 +7,14 @@ from datetime import datetime
 app = Flask(__name__)
 
 dados = [
-    {'id': 'QW12E', 'navio': 'New Panamax', 'embarque': '0', 'desembarque': '0', 'dock': 'A1', 'data': '2024-09-15'},
-    {'id': 'RT56Y', 'navio': 'Ultra Large Container Ship', 'embarque': '0', 'desembarque': '0', 'dock': 'A2', 'data': '2024-07-22'},
-    {'id': 'YU78H', 'navio': 'Post-Panamax', 'embarque': '0', 'desembarque': '0', 'dock': 'A3', 'data': '2024-06-30'},
-    {'id': 'DF34G', 'navio': 'Container Ship', 'embarque': '0', 'desembarque': '0', 'dock': 'A4', 'data': '2024-05-10'},
-    {'id': 'GH89J', 'navio': 'Feeder Ship', 'embarque': '0', 'desembarque': '0', 'dock': 'A1', 'data': '2024-04-20'},
-    {'id': 'JK12M', 'navio': 'General Cargo Ship', 'embarque': '0', 'desembarque': '0', 'dock': 'A2', 'data': '2024-03-05'},
-    {'id': 'LP34N', 'navio': 'Bulk Carer', 'embarque': '0', 'desembarque': '0', 'dock': 'A3', 'data': '2024-02-14'},
-    {'id': 'ZX56O', 'navio': 'Roll-on/Rollri-off', 'embarque': '0', 'desembarque': '0', 'dock': 'A4', 'data': '2024-01-01'},
+    {'id': 'QW12E', 'categoria': 'New Panamax', 'entrada': '0', 'saida': '0', 'dock': 'A1', 'data': '2024-09-15'},
+    {'id': 'RT56Y', 'categoria': 'Ultra Large Container Ship', 'entrada': '0', 'saida': '0', 'dock': 'A2', 'data': '2024-07-22'},
+    {'id': 'YU78H', 'categoria': 'Post-Panamax', 'entrada': '0', 'saida': '0', 'dock': 'A3', 'data': '2024-06-30'},
+    {'id': 'DF34G', 'categoria': 'Container Ship', 'entrada': '0', 'saida': '0', 'dock': 'A4', 'data': '2024-05-10'},
+    {'id': 'GH89J', 'categoria': 'Feeder Ship', 'entrada': '0', 'saida': '0', 'dock': 'A1', 'data': '2024-04-20'},
+    {'id': 'JK12M', 'categoria': 'General Cargo Ship', 'entrada': '0', 'saida': '0', 'dock': 'A2', 'data': '2024-03-05'},
+    {'id': 'LP34N', 'categoria': 'Bulk Carer', 'entrada': '0', 'saida': '0', 'dock': 'A3', 'data': '2024-02-14'},
+    {'id': 'ZX56O', 'categoria': 'Roll-on/Rollri-off', 'entrada': '0', 'saida': '0', 'dock': 'A4', 'data': '2024-01-01'},
 ]
 
 
@@ -29,7 +29,7 @@ def index():
 @app.route('/download_csv')
 def download_csv():
     output = io.StringIO()
-    writer = csv.DictWriter(output, fieldnames=['id', 'navio', 'embarque', 'desembarque', 'dock', 'data'])
+    writer = csv.DictWriter(output, fieldnames=['id', 'categoria', 'entrada', 'saida', 'dock', 'data'])
     writer.writeheader()
     writer.writerows(dados)
 
