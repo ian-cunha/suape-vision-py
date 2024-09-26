@@ -99,14 +99,24 @@ def guia():
             }
             h1 {
                 color: #004A2E;
+                font-size: 2em;
+                margin-bottom: 10px;
             }
             h2 {
                 color: #333;
+                font-size: 1.5em;
+                margin-top: 20px;
+            }
+            h3 {
+                color: #555;
+                font-size: 1.2em;
+                margin-top: 15px;
             }
             pre {
                 background-color: #eee;
                 padding: 10px;
                 border-radius: 5px;
+                overflow-x: auto;
             }
             .container {
                 max-width: 800px;
@@ -131,6 +141,24 @@ def guia():
             }
             button:hover {
                 background-color: #333;
+            }
+            @media (max-width: 600px) {
+                h1 {
+                    font-size: 1.8em;
+                }
+                h2 {
+                    font-size: 1.4em;
+                }
+                h3 {
+                    font-size: 1.1em;
+                }
+                pre {
+                    font-size: 14px;
+                }
+                button {
+                    padding: 10px;
+                    font-size: 16px;
+                }
             }
         </style>
     </head>
@@ -164,30 +192,30 @@ def guia():
         
         <h3>Usando curl</h3>
         <pre>
-        curl -X GET https://suapevision.vercel.app/api/dados
-        curl -X GET https://suapevision.vercel.app/api/dados/id/GH89J
-        curl -X GET https://suapevision.vercel.app/api/dados/data/2024-04-20
-        curl -X GET https://suapevision.vercel.app/api/dados/id/ZX56O/data/2024-01-01
+        curl -X GET http://localhost:5000/api/dados
+        curl -X GET http://localhost:5000/api/dados/id/GH89J
+        curl -X GET http://localhost:5000/api/dados/data/2024-04-20
+        curl -X GET http://localhost:5000/api/dados/id/ZX56O/data/2024-01-01
         </pre>
 
         <h3>Usando JavaScript (Fetch API)</h3>
         <pre>
-        fetch('https://suapevision.vercel.app/api/dados')
+        fetch('http://localhost:5000/api/dados')
             .then(response => response.json())
             .then(data => console.log(data))
             .catch(error => console.error('Erro:', error));
 
-        fetch('https://suapevision.vercel.app/api/dados/id/GH89J')
+        fetch('http://localhost:5000/api/dados/id/GH89J')
             .then(response => response.json())
             .then(data => console.log(data))
             .catch(error => console.error('Erro:', error));
 
-        fetch('https://suapevision.vercel.app/api/dados/data/2024-04-20')
+        fetch('http://localhost:5000/api/dados/data/2024-04-20')
             .then(response => response.json())
             .then(data => console.log(data))
             .catch(error => console.error('Erro:', error));
 
-        fetch('https://suapevision.vercel.app/api/dados/id/ZX56O/data/2024-01-01')
+        fetch('http://localhost:5000/api/dados/id/ZX56O/data/2024-01-01')
             .then(response => response.json())
             .then(data => console.log(data))
             .catch(error => console.error('Erro:', error));
@@ -203,7 +231,7 @@ def guia():
         public class ApiExample {
             public static void main(String[] args) {
                 try {
-                    URL url = new URL("https://suapevision.vercel.app/api/dados");
+                    URL url = new URL("http://localhost:5000/api/dados");
                     HttpURLConnection conn = (HttpURLConnection) url.openConnection();
                     conn.setRequestMethod("GET");
 
@@ -232,6 +260,7 @@ def guia():
     </body>
     </html>
     """
+
 
 
 @app.route("/download_csv")
