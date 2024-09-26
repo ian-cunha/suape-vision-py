@@ -128,10 +128,12 @@
     <div class="container">
         <div id="video">
             <h1>{{ video.title }}</h1>
-            <video controls>
-                <source src="{{ video.url }}" type="video/mp4">
-                Seu navegador não suporta a tag de vídeo.
-            </video>
+            <iframe width="560" height="315"
+                src="https://www.youtube.com/embed/{{ video.url }}?autoplay=1&controls=0&loop=1&playlist={{ video.url }}&mute=1"
+                frameborder="0" allowfullscreen allow="autoplay">
+            </iframe>
+
+
         </div>
         <div id="planilha">
             <h2>Planilha de dados</h2>

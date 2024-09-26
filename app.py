@@ -16,7 +16,7 @@ dados = [
 def index():
     video_data = {
         'title': 'CAM-01',
-        'url': '/static/video.mov'
+        'url': 'vxqQyW4b9jA'
     }
     return render_template('index.html', video=video_data, planilha=dados)
 
