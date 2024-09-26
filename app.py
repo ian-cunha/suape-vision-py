@@ -80,6 +80,97 @@ def index():
     return render_template("index.html", video=video_data, planilha=dados)
 
 
+@app.route("/api/guia")
+def guia():
+    return """
+    <!DOCTYPE html>
+    <html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Guia de Uso da API SUAPE Vision</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                background-color: #f4f4f4;
+                color: #333;
+                margin: 0;
+                padding: 20px;
+            }
+            h1 {
+                color: #004A2E;
+            }
+            h2 {
+                color: #333;
+            }
+            pre {
+                background-color: #eee;
+                padding: 10px;
+                border-radius: 5px;
+            }
+            .container {
+                max-width: 800px;
+                margin: auto;
+                background: white;
+                padding: 20px;
+                border-radius: 8px;
+                box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            }
+            button {
+                background-color: #004A2E;
+                border: none;
+                color: white;
+                padding: 12px 20px;
+                text-align: center;
+                cursor: pointer;
+                border-radius: 5px;
+                transition: background-color 0.3s;
+                margin-top: 20px;
+                display: block;
+                width: 100%;
+            }
+            button:hover {
+                background-color: #333;
+            }
+        </style>
+    </head>
+    <body>
+
+    <div class="container">
+        <h1>Guia de Uso da API SUAPE Vision</h1>
+        
+        <h2>1. URL Base</h2>
+        <p>A URL base da API é <code>/api</code>.</p>
+
+        <h2>2. Página de Boas-Vindas</h2>
+        <p><strong>GET</strong> <code>/api</code>: Exibe a página de boas-vindas da API com opções de navegação.</p>
+
+        <h2>3. Obter Todos os Dados</h2>
+        <p><strong>GET</strong> <code>/api/dados</code>: Recupera todas as entradas em formato JSON.</p>
+
+        <h2>4. Filtrar por ID</h2>
+        <p><strong>GET</strong> <code>/api/dados/id/&lt;id&gt;</code>: Substitua <code>&lt;id&gt;</code> pelo ID desejado (por exemplo, <code>/api/dados/id/GH89J</code>) para recuperar os dados daquela entrada específica.</p>
+
+        <h2>5. Filtrar por Data</h2>
+        <p><strong>GET</strong> <code>/api/dados/data/&lt;data&gt;</code>: Substitua <code>&lt;data&gt;</code> pela data desejada no formato <code>YYYY-MM-DD</code> (por exemplo, <code>/api/dados/data/2024-04-20</code>).</p>
+
+        <h2>6. Filtrar por ID e Data</h2>
+        <p><strong>GET</strong> <code>/api/dados/id/&lt;id&gt;/data/&lt;data&gt;</code>: Use este endpoint para filtrar por ID e data (por exemplo, <code>/api/dados/id/ZX56O/data/2024-01-01</code>).</p>
+
+        <h2>Formato da Resposta</h2>
+        <p>Todas as respostas serão retornadas em formato JSON. Se nenhum dado for encontrado, será retornado um erro 404.</p>
+
+        <p>Se precisar de mais detalhes sobre algum endpoint específico, é só avisar!</p>
+
+        <button onclick="location.href='/api'">Voltar</button>
+    </div>
+
+    </body>
+    </html>
+    """
+
+
+
 @app.route("/download_csv")
 def download_csv():
     output = io.StringIO()
@@ -208,6 +299,7 @@ def get_api_welcome():
                         <h1 class="name-logo"><b>SUAPE</b><br />Vision</h1>
                     </div>
                     <h1>Bem-vindos, API SUAPE Vision!</h1>
+                    <button onclick="location.href='/api/guia'">Guia de uso da API</button>
                     <p>Exemplos de acessos de dados:</p>
                     <button onclick="location.href='/api/dados'">Todos os Dados</button>
                     <button onclick="location.href='/api/dados/id/GH89J'">Filtrar por ID (GH89J)</button>
@@ -216,7 +308,7 @@ def get_api_welcome():
                 </div>
             </body>
         </html>
-    """
+        """
 
 
 @app.route("/api/dados", methods=["GET"])
