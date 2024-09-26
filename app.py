@@ -115,69 +115,95 @@ def get_api_welcome():
                 <title>API SUAPE VISION</title>
                 <style>
                     body {
-                    font-family: Arial, sans-serif;
-                    background-color: #004A2E;
-                    color: #333;
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                    height: 100vh;
-                    margin: 0;
+                        font-family: Arial, sans-serif;
+                        background-color: #004A2E;
+                        color: #333;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        height: 100vh;
+                        margin: 0;
+                        padding: 0 20px;
+                        box-sizing: border-box;
                     }
 
                     .logo img {
-                    max-width: 100px;
-                    height: auto;
+                        max-width: 80px;
+                        height: auto;
                     }
 
                     .logo {
-                    display: flex;
-                    flex-direction: row;
-                    align-items: center;
-                    justify-content: center;
+                        display: flex;
+                        flex-direction: row;
+                        align-items: center;
+                        justify-content: center;
+                        margin-bottom: 20px;
                     }
 
                     .name-logo {
-                    margin-left: 8px;
-                    color: #004A2E;
-                    font-weight: lighter;
-                    font-size: 2.3em;
-                    letter-spacing: -2px;
-                    line-height: 30px;
+                        margin-left: 8px;
+                        color: #004A2E;
+                        font-weight: lighter;
+                        font-size: 2em;
+                        letter-spacing: -1px;
+                        line-height: 30px;
                     }
+
                     .container {
-                    text-align: center;
-                    background-color: white;
-                    padding: 40px;
-                    border-radius: 8px;
-                    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+                        text-align: center;
+                        background-color: white;
+                        padding: 20px;
+                        border-radius: 8px;
+                        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+                        max-width: 600px;
+                        width: 100%;
                     }
+
                     h1 {
-                    color: #004A2E;
+                        color: #004A2E;
+                        font-size: 1.5em;
                     }
+
                     button {
-                    background-color: #004A2E;
-                    border: none;
-                    color: white;
-                    padding: 15px 32px;
-                    text-align: center;
-                    text-decoration: none;
-                    display: inline-block;
-                    font-size: 16px;
-                    margin: 4px 2px;
-                    cursor: pointer;
-                    border-radius: 5px;
-                    transition: background-color 0.3s;
+                        background-color: #004A2E;
+                        border: none;
+                        color: white;
+                        padding: 12px 20px;
+                        text-align: center;
+                        text-decoration: none;
+                        display: inline-block;
+                        font-size: 14px;
+                        margin: 4px 2px;
+                        cursor: pointer;
+                        border-radius: 5px;
+                        transition: background-color 0.3s;
                     }
+
                     button:hover {
-                    background-color: #333;
+                        background-color: #333;
+                    }
+
+                    @media (max-width: 600px) {
+                        .name-logo {
+                            font-size: 1.5em;
+                        }
+
+                        h1 {
+                            font-size: 1.2em;
+                        }
+
+                        button {
+                            width: 100%;
+                            padding: 10px;
+                            font-size: 16px;
+                        }
                     }
                 </style>
             </head>
             <body>
                 <div class="container">
                     <div class="logo">
-                        <img width="80px" src="https://raw.githubusercontent.com/ian-cunha/suape-vision-py/refs/heads/main/src/logo.png" alt="SUAPE Vision">
+                        <img src="https://raw.githubusercontent.com/ian-cunha/suape-vision-py/refs/heads/main/src/logo.png" alt="SUAPE Vision">
                         <h1 class="name-logo"><b>SUAPE</b><br />Vision</h1>
                     </div>
                     <h1>Bem-vindos, API SUAPE Vision!</h1>
@@ -189,6 +215,7 @@ def get_api_welcome():
                 </div>
             </body>
         </html>
+
     """
 
 
