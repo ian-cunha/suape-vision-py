@@ -365,7 +365,6 @@ def webhook():
                 const url = document.getElementById('webhook-url').value;
                 if (url) {
                     alert('Webhook enviado para: ' + url);
-                    // Aqui você pode fazer uma requisição para o servidor para processar a URL do webhook
                 } else {
                     alert('Por favor, insira uma URL válida.');
                 }
