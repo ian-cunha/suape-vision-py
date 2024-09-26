@@ -6,7 +6,6 @@ from datetime import datetime
 
 app = Flask(__name__)
 
-# Dados da planilha
 dados = [
     {'id': 'XL45C', 'navio': 'Navio A', 'embarque': '0', 'desembarque': '0', 'dock': 'A1', 'data': '2024-11-01'},
     {'id': 'OSK54', 'navio': 'Navio B', 'embarque': '0', 'desembarque': '0', 'dock': 'A2', 'data': '2024-10-02'},
@@ -47,7 +46,7 @@ def get_api_welcome():
                 <style>
                     body {
                         font-family: Arial, sans-serif;
-                        background-color: #f0f0f0;
+                        background-color: #2C3E50;
                         color: #333;
                         display: flex;
                         justify-content: center;
