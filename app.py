@@ -135,4 +135,4 @@ def get_dados(id=None, data=None):
     return jsonify(filtrados) if filtrados else ('', 404)
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run()
