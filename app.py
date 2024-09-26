@@ -192,30 +192,30 @@ def guia():
         
         <h3>Usando curl</h3>
         <pre>
-        curl -X GET http://localhost:5000/api/dados
-        curl -X GET http://localhost:5000/api/dados/id/GH89J
-        curl -X GET http://localhost:5000/api/dados/data/2024-04-20
-        curl -X GET http://localhost:5000/api/dados/id/ZX56O/data/2024-01-01
+        curl -X GET https://suapevision.vercel.app/api/dados
+        curl -X GET https://suapevision.vercel.app/api/dados/id/GH89J
+        curl -X GET https://suapevision.vercel.app/api/dados/data/2024-04-20
+        curl -X GET https://suapevision.vercel.app/api/dados/id/ZX56O/data/2024-01-01
         </pre>
 
         <h3>Usando JavaScript (Fetch API)</h3>
         <pre>
-        fetch('http://localhost:5000/api/dados')
+        fetch('https://suapevision.vercel.app/api/dados')
             .then(response => response.json())
             .then(data => console.log(data))
             .catch(error => console.error('Erro:', error));
 
-        fetch('http://localhost:5000/api/dados/id/GH89J')
+        fetch('https://suapevision.vercel.app/api/dados/id/GH89J')
             .then(response => response.json())
             .then(data => console.log(data))
             .catch(error => console.error('Erro:', error));
 
-        fetch('http://localhost:5000/api/dados/data/2024-04-20')
+        fetch('https://suapevision.vercel.app/api/dados/data/2024-04-20')
             .then(response => response.json())
             .then(data => console.log(data))
             .catch(error => console.error('Erro:', error));
 
-        fetch('http://localhost:5000/api/dados/id/ZX56O/data/2024-01-01')
+        fetch('https://suapevision.vercel.app/api/dados/id/ZX56O/data/2024-01-01')
             .then(response => response.json())
             .then(data => console.log(data))
             .catch(error => console.error('Erro:', error));
@@ -231,7 +231,7 @@ def guia():
         public class ApiExample {
             public static void main(String[] args) {
                 try {
-                    URL url = new URL("http://localhost:5000/api/dados");
+                    URL url = new URL("https://suapevision.vercel.app/api/dados");
                     HttpURLConnection conn = (HttpURLConnection) url.openConnection();
                     conn.setRequestMethod("GET");
 
