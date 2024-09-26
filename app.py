@@ -13,8 +13,8 @@ dados = [
     {'id': 'DF34G', 'navio': 'Container Ship', 'embarque': '0', 'desembarque': '0', 'dock': 'A4', 'data': '2024-05-10'},
     {'id': 'GH89J', 'navio': 'Feeder Ship', 'embarque': '0', 'desembarque': '0', 'dock': 'A1', 'data': '2024-04-20'},
     {'id': 'JK12M', 'navio': 'General Cargo Ship', 'embarque': '0', 'desembarque': '0', 'dock': 'A2', 'data': '2024-03-05'},
-    {'id': 'LP34N', 'navio': 'Bulk Carrier', 'embarque': '0', 'desembarque': '0', 'dock': 'A3', 'data': '2024-02-14'},
-    {'id': 'ZX56O', 'navio': 'Roll-on/Roll-off', 'embarque': '0', 'desembarque': '0', 'dock': 'A4', 'data': '2024-01-01'},
+    {'id': 'LP34N', 'navio': 'Bulk Carer', 'embarque': '0', 'desembarque': '0', 'dock': 'A3', 'data': '2024-02-14'},
+    {'id': 'ZX56O', 'navio': 'Roll-on/Rollri-off', 'embarque': '0', 'desembarque': '0', 'dock': 'A4', 'data': '2024-01-01'},
 ]
 
 
@@ -119,9 +119,9 @@ def get_api_welcome():
                     <h1>Bem-vindos, API SUAPE Vision!</h1>
                     <p>Exemplos de acessos de dados:</p>
                     <button onclick="location.href='/api/dados'">Ver Todos os Dados</button>
-                    <button onclick="location.href='/api/dados/id/OSK54'">Filtrar por ID (OSK54)</button>
-                    <button onclick="location.href='/api/dados/data/2024-10-02'">Filtrar por Data (2024-10-02)</button>
-                    <button onclick="location.href='/api/dados/id/OSK54/data/2024-10-02'">Filtrar por ID e Data</button>
+                    <button onclick="location.href='/api/dados/id/GH89J'">Filtrar por ID (GH89J)</button>
+                    <button onclick="location.href='/api/dados/data/2024-04-20'">Filtrar por Data (2024-04-20)</button>
+                    <button onclick="location.href='/api/dados/id/ZX56O/data/2024-01-01'">Filtrar por ID e Data</button>
                 </div>
             </body>
         </html>
