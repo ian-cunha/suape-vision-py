@@ -160,15 +160,78 @@ def guia():
         <h2>Formato da Resposta</h2>
         <p>Todas as respostas serão retornadas em formato JSON. Se nenhum dado for encontrado, será retornado um erro 404.</p>
 
+        <h2>Exemplos de Uso</h2>
+        
+        <h3>Usando curl</h3>
+        <pre>
+        curl -X GET https://suapevision.vercel.app/api/dados
+        curl -X GET https://suapevision.vercel.app/api/dados/id/GH89J
+        curl -X GET https://suapevision.vercel.app/api/dados/data/2024-04-20
+        curl -X GET https://suapevision.vercel.app/api/dados/id/ZX56O/data/2024-01-01
+        </pre>
+
+        <h3>Usando JavaScript (Fetch API)</h3>
+        <pre>
+        fetch('https://suapevision.vercel.app/api/dados')
+            .then(response => response.json())
+            .then(data => console.log(data))
+            .catch(error => console.error('Erro:', error));
+
+        fetch('https://suapevision.vercel.app/api/dados/id/GH89J')
+            .then(response => response.json())
+            .then(data => console.log(data))
+            .catch(error => console.error('Erro:', error));
+
+        fetch('https://suapevision.vercel.app/api/dados/data/2024-04-20')
+            .then(response => response.json())
+            .then(data => console.log(data))
+            .catch(error => console.error('Erro:', error));
+
+        fetch('https://suapevision.vercel.app/api/dados/id/ZX56O/data/2024-01-01')
+            .then(response => response.json())
+            .then(data => console.log(data))
+            .catch(error => console.error('Erro:', error));
+        </pre>
+
+        <h3>Usando Java</h3>
+        <pre>
+        import java.io.BufferedReader;
+        import java.io.InputStreamReader;
+        import java.net.HttpURLConnection;
+        import java.net.URL;
+
+        public class ApiExample {
+            public static void main(String[] args) {
+                try {
+                    URL url = new URL("https://suapevision.vercel.app/api/dados");
+                    HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+                    conn.setRequestMethod("GET");
+
+                    BufferedReader in = new BufferedReader(new InputStreamReader(conn.getInputStream()));
+                    String inputLine;
+                    StringBuffer response = new StringBuffer();
+
+                    while ((inputLine = in.readLine()) != null) {
+                        response.append(inputLine);
+                    }
+                    in.close();
+
+                    System.out.println(response.toString());
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+        </pre>
+
         <p>Se precisar de mais detalhes sobre algum endpoint específico, é só avisar!</p>
 
-        <button onclick="location.href='/api'">Voltar</button>
+        <button onclick="location.href='/'">Voltar</button>
     </div>
 
     </body>
     </html>
     """
-
 
 
 @app.route("/download_csv")
