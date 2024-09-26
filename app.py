@@ -113,6 +113,7 @@ def get_api_welcome():
         <html>
             <head>
                 <title>API SUAPE VISION</title>
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
                 <style>
                     body {
                         font-family: Arial, sans-serif;
@@ -144,7 +145,7 @@ def get_api_welcome():
                         margin-left: 8px;
                         color: #004A2E;
                         font-weight: lighter;
-                        font-size: 2em;
+                        font-size: 1.8em;
                         letter-spacing: -1px;
                         line-height: 30px;
                     }
@@ -173,10 +174,11 @@ def get_api_welcome():
                         text-decoration: none;
                         display: inline-block;
                         font-size: 14px;
-                        margin: 4px 2px;
+                        margin: 4px 0;
                         cursor: pointer;
                         border-radius: 5px;
                         transition: background-color 0.3s;
+                        width: 100%;
                     }
 
                     button:hover {
@@ -193,7 +195,6 @@ def get_api_welcome():
                         }
 
                         button {
-                            width: 100%;
                             padding: 10px;
                             font-size: 16px;
                         }
@@ -215,7 +216,6 @@ def get_api_welcome():
                 </div>
             </body>
         </html>
-
     """
 
 
