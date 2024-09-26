@@ -353,8 +353,8 @@ def webhook():
         <div class="container">
             <h1>Webhook</h1>
             <p>Aqui você pode configurar seu webhook para receber eventos.</p>
-            <input type="text" id="webhook-url" placeholder="Usuário">
-            <input type="text" id="webhook-url" placeholder="Senha">
+            <input type="text" id="user" placeholder="Usuário">
+            <input type="text" id="password" placeholder="Senha">
             <input type="text" id="webhook-url" placeholder="Insira a URL do webhook">
             <button onclick="submitWebhook()">Enviar Webhook</button>
             <button onclick="location.href='/'">Voltar</button>
