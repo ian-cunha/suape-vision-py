@@ -289,6 +289,94 @@ def download_csv():
     )
 
 
+@app.route("/webhook")
+def webhook():
+    return """
+    <!DOCTYPE html>
+    <html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Webhook API Suape Vision</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                background-color: #f4f4f4;
+                color: #333;
+                padding: 20px;
+            }
+            h1 {
+                color: #004A2E;
+            }
+            .container {
+                max-width: 600px;
+                margin: auto;
+                background: white;
+                padding: 20px;
+                border-radius: 8px;
+                box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            }
+            button {
+                background-color: #004A2E;
+                border: none;
+                color: white;
+                padding: 12px 20px;
+                text-align: center;
+                cursor: pointer;
+                border-radius: 5px;
+                transition: background-color 0.3s;
+                margin-top: 20px;
+                display: block;
+                width: 100%;
+            }
+            button:hover {
+                background-color: #333;
+            }
+            input[type="text"] {
+                width: 95%;
+                padding: 12px;
+                margin-top: 10px;
+                border: 1px solid #ccc;
+                border-radius: 5px;
+                font-size: 16px;
+                box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+                transition: border-color 0.3s, box-shadow 0.3s;
+            }
+            input[type="text"]:focus {
+                border-color: #004A2E;
+                box-shadow: 0 0 5px rgba(0, 74, 46, 0.5);
+                outline: none;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <h1>Webhook</h1>
+            <p>Aqui você pode configurar seu webhook para receber eventos.</p>
+            <input type="text" id="webhook-url" placeholder="Usuário">
+            <input type="text" id="webhook-url" placeholder="Senha">
+            <input type="text" id="webhook-url" placeholder="Insira a URL do webhook">
+            <button onclick="submitWebhook()">Enviar Webhook</button>
+            <button onclick="location.href='/'">Voltar</button>
+        </div>
+
+        <script>
+            function submitWebhook() {
+                const url = document.getElementById('webhook-url').value;
+                if (url) {
+                    alert('Webhook enviado para: ' + url);
+                    // Aqui você pode fazer uma requisição para o servidor para processar a URL do webhook
+                } else {
+                    alert('Por favor, insira uma URL válida.');
+                }
+            }
+        </script>
+    </body>
+    </html>
+    """
+
+
+
 @app.route("/api", methods=["GET"])
 def get_api_welcome():
     return """
@@ -391,6 +479,7 @@ def get_api_welcome():
                     </div>
                     <h1>Bem-vindos, API SUAPE Vision!</h1>
                     <button onclick="location.href='/api/guia'">Guia de uso da API</button>
+                    <button onclick="location.href='/webhook'">Webhook</button>
                     <p>Exemplos de acessos de dados:</p>
                     <button onclick="location.href='/api/dados'">Todos os Dados</button>
                     <button onclick="location.href='/api/dados/id/GH89J'">Filtrar por ID (GH89J)</button>
